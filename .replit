@@ -1,0 +1,55 @@
+modules = ["php-8.4", "python-base-3.13", "nodejs-24"]
+[nix]
+channel = "stable-25_05"
+packages = ["unzip"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./start.sh 5000"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+
+[[ports]]
+localPort = 5001
+externalPort = 3001
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 300000
+
+[deployment]
+deploymentTarget = "vm"
+build = ["sh", "scripts/build-deployment.sh"]
+run = ["sh", "./start.sh", "5000", "--prebuilt"]
+ignorePorts = false
+
+[userenv]
+
+[userenv.shared]
+MYSQL_HOST = "LAPTOP-D2UC096G"
+MYSQL_PORT = "3306"
+MYSQL_DATABASE = "MySQL Workbench"
+MYSQL_USER = "Simphiwe"
+MYSQL_SSL_MODE = "Disabled"
+MYSQL_SSL_CA = "ca.pem"

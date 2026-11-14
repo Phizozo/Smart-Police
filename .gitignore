@@ -1,0 +1,11 @@
+/data/*
+/data.*
+!/data/.gitkeep
+/generated-artifacts/
+/zipFile.zip
+/node_modules/
+/vendor/
+/.cache/
+__pycache__/
+*.py[cod]
+*.spbk

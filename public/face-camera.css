@@ -1,0 +1,85 @@
+.face-camera {
+  --face-ink: #eaf2ff;
+  --face-muted: #a9bddb;
+  --face-line: rgba(153, 188, 236, .24);
+  margin: 12px 0 16px;
+  padding: 16px;
+  border: 1px solid var(--face-line);
+  border-radius: 14px;
+  color: var(--face-ink);
+  background: linear-gradient(145deg, rgba(22, 48, 83, .76), rgba(10, 26, 51, .72));
+}
+.face-camera__heading { margin-bottom: 12px; }
+.face-camera__heading h3 { margin: 3px 0 5px; font-size: 16px; letter-spacing: -.02em; }
+.face-camera__heading p { margin: 0; color: var(--face-muted); font-size: 12px; line-height: 1.55; }
+.face-camera__eyebrow { color: #8dd7e8; font: 700 9px 'DM Sans', sans-serif; letter-spacing: .12em; }
+.face-camera__viewport {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid rgba(150, 183, 227, .24);
+  border-radius: 11px;
+  background: #07162b;
+}
+.face-camera__video, .face-camera__photo {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #07162b;
+}
+.face-camera__video[hidden], .face-camera__photo[hidden] { display: none; }
+.face-camera__video { transform: scaleX(-1); }
+.face-camera__photo { object-position: center; }
+.face-camera__placeholder {
+  position: absolute;
+  max-width: 260px;
+  padding: 16px;
+  color: #a9bddb;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.face-camera__controls { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 11px; }
+.face-camera__controls button {
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 1px solid rgba(143, 187, 243, .32);
+  border-radius: 8px;
+  color: #eaf4ff;
+  background: #1d4778;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .16s ease, opacity .16s ease, background-color .16s ease;
+}
+.face-camera__controls button:hover:not(:disabled) { background: #285b92; transform: translateY(-1px); }
+.face-camera__controls button:focus-visible {
+  outline: 2px solid #8dd7e8;
+  outline-offset: 3px;
+}
+.face-camera__controls button:disabled { opacity: .48; cursor: not-allowed; }
+.face-camera__controls [data-face-camera="capture"] { color: #10243c; background: #a9d9f1; border-color: #a9d9f1; }
+.face-camera__controls [data-face-camera="capture"]:hover:not(:disabled) { background: #c4e9f8; }
+.face-camera__controls [data-face-camera="retake"] { background: transparent; }
+.face-camera__controls [data-face-camera="stop"] { background: #193252; }
+.face-camera__status, .face-camera__error { min-height: 1.45em; margin: 8px 0 0; font-size: 12px; line-height: 1.5; }
+.face-camera__status { color: #b7d9f3; }
+.face-camera__error { color: #ffc0c6; }
+.face-camera__file { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; clip-path: inset(50%)!important; }
+@media (max-width: 540px) {
+  .face-camera { padding: 13px; }
+  .face-camera__viewport { max-width: 280px; }
+  .face-camera__video, .face-camera__photo { max-height: 210px; }
+  .face-camera__controls { display: grid; grid-template-columns: 1fr 1fr; }
+  .face-camera__controls button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .face-camera__controls button { transition: none; }
+}

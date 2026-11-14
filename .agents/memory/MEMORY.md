@@ -1,0 +1,14 @@
+- [Recovery safety](recovery-safety.md) — full recovery stays offline, uses a separate backup passphrase, and invalidates existing sessions.
+- [SQLite archive schema checks](backup-schema-validation.md) — compare ordered column definitions, not `PRAGMA table_info` cids that shift after legacy column drops.
+- [Passkey verification](passkey-verification.md) — virtual-authenticator checks verify WebAuthn ceremonies, not physical Face ID availability.
+- [Citizen identity review](identity-review-policy.md) — live camera capture for human review; Officer or Admin can decide requests, separately from passkey sign-in.
+- [Private document viewing](document-viewing.md) — user chose in-portal review, not copying private uploads to the connected OneDrive account.
+- [OneDrive database mirror](onedrive-database-mirror.md) — keep the existing workbook filename and mirror operational records without credentials or uploaded documents.
+- [Portal appearance](portal-appearance.md) — Admin, Officer and Citizen interfaces use ashy-grey surfaces and black text.
+- [PDF form flattening](pdf-approval-generation.md) — flattened forms can leave deleted widget references; resolve remaining annotations instead of counting them.
+- [Dashboard location consent](dashboard-location-consent.md) — live-map permission does not authorise SOS alerts or location history; respect pause through refreshes.
+- [Admin onboarding choice](admin-onboarding-policy.md) — Admin creation includes a chosen username; recipients choose passwords through a private setup link.
+- [Account suspension safety](account-suspension-policy.md) — all roles require recorded reasons; self-lockout is blocked and reinstatement must not revive old sessions.
+- [Citizen camera sign-in](citizen-camera-signin.md) — user approved a biometric service for real-camera face sign-in; keep secure fallback until verified.
+- [Publishing scope](publishing-scope.md) — user chose demonstration publishing with test data only, not readiness for real Citizen data.
+- [Workflow port diagnostics](workflow-port-forwarding.md) — PHP may serve 5000 successfully while the Replit workflow still fails to register that port.

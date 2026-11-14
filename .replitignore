@@ -1,0 +1,8 @@
+/data.*
+/data/
+*.spbk
+/generated-artifacts/
+/zipFile.zip
+/.cache/
+__pycache__/
+*.py[cod]

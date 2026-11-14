@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "SvK16shX-e_8i_oWGyrt_"
+uri = "file://generated-artifacts/smart-police-presentation.html"
+type = "html"
+title = "Smart Police — System Overview Presentation"
+description = "An 8-slide interactive presentation. Use the arrow keys or on-screen controls to navigate; use Print to save as PDF."
+logical_id = "44cb44fc-7f60-43d7-8df5-56c8beac31b0"
+content_hash = "sha256:6603c78c17c601964ed35c30b8955c5b78d717a5ed3afe3fa6e67c00b5834656"
+size = 11962
+mtime_ms = 1793840396572
+storage_uri = "gcs://replit-rams-assets-riker/rams/assets/repl:3ba81778-439c-44b1-8ed4-9c9493151655/44cb44fc-7f60-43d7-8df5-56c8beac31b0/7d56d29d-5bb2-4b16-b3c5-422929182b0d"
+storage_version_token = "1793840405565776"
+content_type = "text/html"

@@ -1,0 +1,718 @@
+/*
+ * Ash / graphite workspace skin.
+ * Intentionally scoped to authenticated workspaces and role-auth screens;
+ * the public marketing home remains on its existing visual theme.
+ */
+/* Legacy modules contain more-specific dark input rules. Keep the requested
+   portal text/controls consistent without recolouring image or canvas pixels. */
+body.workspace-theme,
+body.workspace-theme * {
+  color: #000 !important;
+}
+body.workspace-theme input:not([type="checkbox"]):not([type="radio"]),
+body.workspace-theme select,
+body.workspace-theme textarea {
+  color: #000 !important;
+  background-color: #f4f4f4 !important;
+  background-image: none !important;
+  caret-color: #000;
+}
+body.workspace-theme :is(button, .button-link, .button-secondary, .tool-button),
+body.workspace-theme input::file-selector-button {
+  color: #000 !important;
+  background-color: #d5d5d5 !important;
+  background-image: none !important;
+}
+body.workspace-theme :is(input, textarea)::placeholder {
+  color: #000 !important;
+  opacity: 1;
+}
+body.workspace-theme {
+  color-scheme: light;
+  color: #000;
+  background: #dedede;
+  --ink: #000;
+  --muted: #000;
+  --line: #bcbcbc;
+  --paper: #e2e2e2;
+  --danger: #000;
+  --good: #000;
+  --gold: #000;
+}
+body.workspace-theme ::selection {
+  color: #000;
+  background: #bdbdbd;
+}
+
+.workspace-theme :is(.site-shell, .app-shell) {
+  color: #000;
+  background: #dedede;
+}
+
+/* Login, account creation and first-run administrator setup */
+.workspace-theme .public-nav,
+.workspace-theme .app-top {
+  color: #000;
+  background: #e7e7e7;
+  border-color: #bdbdbd;
+  box-shadow: 0 3px 12px #0000000b;
+  backdrop-filter: none;
+}
+.workspace-theme .public-nav > a:not(.brand),
+.workspace-theme .portal-intro p,
+.workspace-theme .auth-card-heading p,
+.workspace-theme .auth-card label,
+.workspace-theme .field-help,
+.workspace-theme .session-help,
+.workspace-theme .portal-copy small,
+.workspace-theme .portal-auth-modes a {
+  color: #000;
+}
+.workspace-theme .brand,
+.workspace-theme .app-brand,
+.workspace-theme .brand-light,
+.workspace-theme .brand small,
+.workspace-theme .app-brand small {
+  color: #000;
+}
+.workspace-theme .brand-mark,
+.workspace-theme .trust-mark {
+  color: #000;
+  background: #c7c7c7;
+  border: 1px solid #999;
+  box-shadow: none;
+}
+.workspace-theme .nav-access,
+.workspace-theme .portal-card,
+.workspace-theme .auth-card,
+.workspace-theme .portal-auth-modes,
+.workspace-theme .portal-auth-modes a.selected {
+  color: #000;
+  background: #eeeeee;
+  border-color: #b8b8b8;
+  box-shadow: 0 3px 12px #0000000a;
+  backdrop-filter: none;
+}
+.workspace-theme .portal-card:hover,
+.workspace-theme .portal-card.portal-selected {
+  border-color: #555;
+  box-shadow: inset 0 0 0 1px #777;
+}
+.workspace-theme .portal-number,
+.workspace-theme .portal-arrow,
+.workspace-theme .eyebrow {
+  color: #000;
+}
+.workspace-theme .portal-intro h1,
+.workspace-theme .auth-card h2,
+.workspace-theme .app-main h1,
+.workspace-theme .app-main h2,
+.workspace-theme .app-main h3 {
+  color: #000;
+}
+.workspace-theme .back-link,
+.workspace-theme .auth-switch,
+.workspace-theme .app-main a,
+.workspace-theme .location-meta a,
+.workspace-theme .case-pdf-link {
+  color: #000;
+}
+.workspace-theme .auth-card input,
+.workspace-theme .app-shell input,
+.workspace-theme .app-shell select,
+.workspace-theme .app-shell textarea,
+.workspace-theme .password-dialog input {
+  color: #000;
+  background: #f5f5f5;
+  border: 1px solid #a9a9a9;
+  box-shadow: none;
+}
+.workspace-theme input::placeholder,
+.workspace-theme textarea::placeholder {
+  color: #000;
+  opacity: 1;
+}
+.workspace-theme .auth-card input:disabled,
+.workspace-theme .app-shell input:disabled,
+.workspace-theme .app-shell select:disabled,
+.workspace-theme .app-shell textarea:disabled {
+  color: #000;
+  background: #d6d6d6;
+}
+.workspace-theme .auth-submit,
+.workspace-theme button {
+  color: #000;
+  background: #d0d0d0;
+  border: 1px solid #999;
+  box-shadow: 0 2px 5px #0000000d;
+}
+.workspace-theme .auth-submit:hover,
+.workspace-theme button:hover:not(:disabled) {
+  color: #000;
+  background: #c5c5c5;
+  border-color: #777;
+  box-shadow: 0 3px 8px #00000014;
+}
+.workspace-theme button:disabled,
+.workspace-theme button[aria-disabled="true"] {
+  color: #000;
+  background: #d6d6d6;
+  border-color: #b8b8b8;
+  opacity: .72;
+  box-shadow: none;
+}
+.workspace-theme .auth-switch,
+.workspace-theme .ghost,
+.workspace-theme .tool-button,
+.workspace-theme .password-toggle,
+.workspace-theme .dialog-close,
+.workspace-theme .connection-banner button,
+.workspace-theme .button-secondary,
+.workspace-theme .button-link {
+  color: #000;
+  background: #d0d0d0;
+  border: 1px solid #a9a9a9;
+  box-shadow: none;
+}
+.workspace-theme .auth-forgot {
+  color: #000;
+}
+.workspace-theme .forgot-password-help,
+.workspace-theme .setup-notice {
+  color: #000;
+  background: #e4e4e4;
+  border-color: #aaa;
+}
+.workspace-theme .auth-switch:hover,
+.workspace-theme .ghost:hover,
+.workspace-theme .tool-button:hover,
+.workspace-theme .password-toggle:hover,
+.workspace-theme .dialog-close:hover,
+.workspace-theme .connection-banner button:hover,
+.workspace-theme .button-secondary:hover {
+  color: #000;
+  background: #d9d9d9;
+}
+.workspace-theme .portal-auth-modes a:hover,
+.workspace-theme .portal-auth-modes a.selected {
+  color: #000;
+}
+
+/* Authenticated navigation, content surfaces and readable data */
+.workspace-theme .app-top {
+  position: sticky;
+}
+.workspace-theme .live-status,
+.workspace-theme .live-status i,
+.workspace-theme .user-pill,
+.workspace-theme .user-pill b,
+.workspace-theme .app-tools time,
+.workspace-theme .app-disclaimer,
+.workspace-theme .meta,
+.workspace-theme .app-main small,
+.workspace-theme .app-main p,
+.workspace-theme .app-main label,
+.workspace-theme .app-main summary {
+  color: #000;
+}
+.workspace-theme .app-nav {
+  background: #e3e3e3;
+  border-color: #bdbdbd;
+  backdrop-filter: none;
+}
+.workspace-theme .app-nav button {
+  color: #000;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.workspace-theme .app-nav button:hover,
+.workspace-theme .app-nav button[aria-current="true"] {
+  color: #000;
+  background: #f0f0f0;
+  border-color: #a5a5a5;
+  box-shadow: none;
+}
+.workspace-theme .panel,
+.workspace-theme .case,
+.workspace-theme .export-card,
+.workspace-theme .sos-action-card,
+.workspace-theme .citizen-welcome,
+.workspace-theme .service-request,
+.workspace-theme .service-form,
+.workspace-theme .notice-panel {
+  color: #000;
+  background: #ededed;
+  border: 1px solid #b9b9b9;
+  box-shadow: 0 3px 12px #0000000a;
+  backdrop-filter: none;
+}
+.workspace-theme .panel :is(h2, h3),
+.workspace-theme .case :is(h2, h3),
+.workspace-theme .service-request :is(h2, h3),
+.workspace-theme .citizen-welcome h1,
+.workspace-theme .citizen-welcome p,
+.workspace-theme .sos-action-copy p,
+.workspace-theme .service-ref,
+.workspace-theme .service-request header small,
+.workspace-theme .service-details summary,
+.workspace-theme .service-review summary,
+.workspace-theme .service-details dt,
+.workspace-theme .service-detail-view dt,
+.workspace-theme .service-note,
+.workspace-theme .service-privacy,
+.workspace-theme .service-privacy strong,
+.workspace-theme .citizen-stat strong,
+.workspace-theme .citizen-stat span,
+.workspace-theme .citizen-location-panel > p,
+.workspace-theme .citizen-map-meta b,
+.workspace-theme .citizen-map-meta small {
+  color: #000;
+}
+.workspace-theme .citizen-contact,
+.workspace-theme .citizen-contact span,
+.workspace-theme .citizen-contact b,
+.workspace-theme .user-contact-summary,
+.workspace-theme .activity-list time,
+.workspace-theme .activity-list span,
+.workspace-theme .activity-list b,
+.workspace-theme .dashboard-alert b,
+.workspace-theme .location-meta > span,
+.workspace-theme .location-none {
+  color: #000;
+}
+.workspace-theme .user-reset-form,
+.workspace-theme .forgot-password-help,
+.workspace-theme .service-downloads a,
+.workspace-theme .service-file {
+  color: #000;
+  background: #e3e3e3;
+  border-color: #aaa;
+}
+.workspace-theme .app-shell table {
+  color: #000;
+}
+.workspace-theme .app-shell th,
+.workspace-theme .app-shell td {
+  border-color: #c4c4c4;
+}
+.workspace-theme .app-shell th {
+  color: #000;
+  background: #e0e0e0;
+}
+.workspace-theme .app-shell input[type="file"],
+.workspace-theme .service-form input[type="file"] {
+  color: #000;
+  background: #e4e4e4;
+  border: 1px dashed #858585;
+}
+.workspace-theme .app-shell input[type="file"]::file-selector-button,
+.workspace-theme .service-form input[type="file"]::file-selector-button {
+  color: #000;
+  background: #d0d0d0;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 5px 9px;
+}
+.workspace-theme .empty {
+  color: #000;
+  background: #e9e9e9;
+  border-color: #999;
+}
+.workspace-theme .field-help,
+.workspace-theme .legal-note,
+.workspace-theme .stamp-time,
+.workspace-theme .location-meta > small,
+.workspace-theme .map-unavailable {
+  color: #000;
+}
+.workspace-theme .form-error,
+.workspace-theme .err,
+.workspace-theme .field-error {
+  color: #000;
+}
+.workspace-theme .flash,
+.workspace-theme .connection-banner {
+  color: #000;
+  background: #f2e5e5;
+  border: 1px solid #a9696d;
+}
+.workspace-theme .notice-panel {
+  border-left: 3px solid #817246;
+}
+.workspace-theme .notice-panel strong {
+  color: #000;
+}
+.workspace-theme .approval-status,
+.workspace-theme .chip {
+  color: #000;
+  background: #e3e3e3;
+  border: 1px solid #777;
+}
+.workspace-theme .approval-status.pending,
+.workspace-theme .Reported,
+.workspace-theme .Pending {
+  color: #000;
+  background: #f2eddf;
+  border-color: #968252;
+}
+.workspace-theme .approval-status.active,
+.workspace-theme .Approved,
+.workspace-theme .Certified,
+.workspace-theme .Resolved {
+  color: #000;
+  background: #e5eee8;
+  border-color: #63816e;
+}
+.workspace-theme .approval-status.rejected,
+.workspace-theme .Rejected,
+.workspace-theme .Open,
+.workspace-theme .bad {
+  color: #000;
+  background: #f2e4e5;
+  border-color: #a66368;
+}
+.workspace-theme .Assigned,
+.workspace-theme .Responding,
+.workspace-theme .Evidence {
+  color: #000;
+  background: #e7e7e7;
+  border-color: #777;
+}
+.workspace-theme .Closed {
+  color: #000;
+  background: #e4e4e4;
+  border-color: #888;
+}
+.workspace-theme .ok {
+  color: #000;
+  background: #e5eee8;
+  border-color: #63816e;
+}
+.workspace-theme .kpis b {
+  color: #000;
+}
+.workspace-theme .bar i {
+  background: #929292;
+}
+.workspace-theme .dashboard-alert {
+  color: #000;
+  background: #e4e4e4;
+  border-color: #999;
+}
+.workspace-theme .sos-panel {
+  border-left: 3px solid #8e7a46;
+}
+.workspace-theme .sos-panel.alert {
+  border-left-color: #9d5b60;
+}
+.workspace-theme .location-meta,
+.workspace-theme .map-unavailable,
+.workspace-theme .citizen-map-empty,
+.workspace-theme .service-note,
+.workspace-theme .service-privacy {
+  background: #e1e1e1;
+  border-color: #aaa;
+}
+.workspace-theme .live-location iframe,
+.workspace-theme .citizen-map iframe {
+  background: #dedede;
+  border-color: #aaa;
+}
+.workspace-theme .app-disclaimer {
+  border-color: #bdbdbd;
+}
+.workspace-theme #toast {
+  color: #000;
+  background: #ededed;
+  border: 1px solid #999;
+  box-shadow: 0 4px 15px #00000020;
+}
+
+/* Password, camera and document preview dialog chrome; document pixels remain untouched. */
+.workspace-theme .password-dialog,
+.workspace-theme .document-viewer {
+  color: #000;
+  background: #e7e7e7;
+  border: 1px solid #999;
+  box-shadow: 0 18px 55px #0000002b;
+}
+.workspace-theme .password-dialog::backdrop,
+.workspace-theme .document-viewer::backdrop {
+  background: #22222272;
+  backdrop-filter: blur(3px);
+}
+.workspace-theme .password-dialog h2,
+.workspace-theme .password-dialog label,
+.workspace-theme .password-dialog > form > p:not(.form-error),
+.workspace-theme .document-viewer__title,
+.workspace-theme .document-viewer__message h3 {
+  color: #000;
+}
+.workspace-theme .document-viewer__header,
+.workspace-theme .document-viewer__pdf-toolbar,
+.workspace-theme .document-viewer__footer {
+  color: #000;
+  background: #dedede;
+  border-color: #b5b5b5;
+}
+.workspace-theme .document-viewer__eyebrow,
+.workspace-theme .document-viewer__pdf-page-count,
+.workspace-theme .document-viewer__footer,
+.workspace-theme .document-viewer__footer a,
+.workspace-theme .document-viewer__message p,
+.workspace-theme .document-viewer__pdf-loading {
+  color: #000;
+}
+.workspace-theme .document-viewer__download,
+.workspace-theme .document-viewer__close,
+.workspace-theme .document-viewer__pdf-button {
+  color: #000;
+  background: #ededed;
+  border-color: #999;
+  box-shadow: none;
+}
+.workspace-theme .document-viewer__download:hover,
+.workspace-theme .document-viewer__close:hover,
+.workspace-theme .document-viewer__pdf-button:hover:not(:disabled) {
+  color: #000;
+  background: #d2d2d2;
+  border-color: #666;
+}
+.workspace-theme .document-viewer__body,
+.workspace-theme .document-viewer__pdf-stage {
+  background: #d5d5d5;
+}
+.workspace-theme .document-viewer__text {
+  color: #000;
+}
+.workspace-theme .face-camera {
+  color: #000;
+  background: #e7e7e7;
+  border-color: #aaa;
+}
+.workspace-theme .face-camera__heading h3,
+.workspace-theme .face-camera__heading p,
+.workspace-theme .face-camera__eyebrow,
+.workspace-theme .face-camera__placeholder,
+.workspace-theme .face-camera__status {
+  color: #000;
+}
+.workspace-theme .face-camera__viewport {
+  background: #d5d5d5;
+  border-color: #999;
+}
+.workspace-theme .face-camera__controls button,
+.workspace-theme .face-camera__controls [data-face-camera="capture"],
+.workspace-theme .face-camera__controls [data-face-camera="stop"],
+.workspace-theme .face-camera__controls [data-face-camera="retake"] {
+  color: #000;
+  background: #d0d0d0;
+  border-color: #999;
+}
+.workspace-theme .face-camera__error {
+  color: #000;
+}
+
+.workspace-theme :is(button, input, select, textarea, a, summary):focus-visible {
+  outline: 3px solid #242424;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px #ffffffa6;
+}
+.workspace-theme :is(input, select, textarea)[aria-invalid="true"] {
+  border-color: #7c3439;
+  box-shadow: 0 0 0 2px #7c343933;
+}
+@media (prefers-reduced-motion: reduce) {
+  .workspace-theme *,
+  .workspace-theme *::before,
+  .workspace-theme *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+/* Keep the selected authentication option visibly distinct on every portal. */
+body.workspace-theme nav.portal-auth-modes a {
+  background: #eeeeee !important;
+  color: #000000 !important;
+  border: 1px solid #b6b6b6 !important;
+}
+body.workspace-theme nav.portal-auth-modes a.selected {
+  background: #aaaaaa !important;
+  color: #000000 !important;
+  border-color: #555555 !important;
+  box-shadow: inset 0 -3px 0 #555555 !important;
+  font-weight: 700;
+}
+body.workspace-theme nav.portal-auth-modes a:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+/* Clear, steady workspace hierarchy without changing the selected chart or
+   dashboard-card palettes. */
+.workspace-theme .app-shell {
+  background: #dedede;
+}
+.workspace-theme .app-main {
+  padding-top: clamp(22px, 4vw, 38px);
+}
+.workspace-theme .app-nav {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #e3e3e3;
+}
+.workspace-theme .app-nav button {
+  min-height: 40px;
+  white-space: nowrap;
+}
+.workspace-theme .app-nav button[aria-current="true"] {
+  font-weight: 750;
+  box-shadow: inset 0 -3px 0 #555;
+}
+.workspace-theme .section-heading {
+  max-width: 760px;
+}
+.workspace-theme .section-heading > p {
+  max-width: 680px;
+  line-height: 1.65;
+}
+.workspace-theme .app-main form:not(.inline) {
+  max-width: 760px;
+}
+.workspace-theme .app-main form:not(.inline) label {
+  display: block;
+}
+.workspace-theme .signup-passkey-choice {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin-top: .9rem;
+  cursor: pointer;
+  font-weight: 650;
+}
+.workspace-theme .signup-passkey-choice input[type="checkbox"] {
+  width: 1.1rem;
+  min-height: 1.1rem;
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: #555;
+}
+.workspace-theme .signup-passkey-choice + .field-help {
+  display: block;
+  margin: .3rem 0 .75rem 1.8rem;
+  line-height: 1.5;
+}
+.workspace-theme .app-main :is(input, select, textarea) {
+  min-height: 44px;
+}
+.workspace-theme .app-main textarea {
+  min-height: 112px;
+}
+.workspace-theme .app-main :is(button, .button-link, summary) {
+  min-height: 40px;
+}
+.workspace-theme .app-main summary {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.workspace-theme .form-intro,
+.workspace-theme .form-submit-note {
+  padding: 10px 12px;
+  border-left: 3px solid #777;
+  background: #e2e2e2;
+  line-height: 1.55;
+}
+.workspace-theme .form-submit-note {
+  margin: 12px 0 2px;
+  font-size: 11px;
+}
+.workspace-theme .app-main .empty {
+  max-width: 760px;
+  padding: 24px clamp(16px, 4vw, 32px);
+  line-height: 1.65;
+}
+.workspace-theme :is(.app-top, .app-nav) {
+  scroll-margin-top: 8px;
+}
+@media (max-width: 700px) {
+  .workspace-theme .app-top {
+    position: relative;
+    align-items: flex-start;
+  }
+  .workspace-theme .app-nav {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    padding-block: 7px;
+  }
+  .workspace-theme .app-nav button {
+    min-height: 44px;
+    padding-inline: 12px;
+  }
+  .workspace-theme .app-main {
+    padding-inline: 14px;
+  }
+  .workspace-theme .app-main form:not(.inline) button[type="submit"] {
+    width: 100%;
+    min-height: 46px;
+  }
+}
+
+/* Citizen dashboard status cards use semantic keys so their meaning stays
+   stable if the dashboard order changes. */
+.workspace-theme .citizen-stats .citizen-stat[data-stat="total_cases"] {
+  background: #d4d4d4 !important;
+}
+.workspace-theme .citizen-stats .citizen-stat[data-stat="open_cases"] {
+  background: #fce7f3 !important;
+}
+.workspace-theme .citizen-stats .citizen-stat[data-stat="service_requests"] {
+  background: linear-gradient(135deg, rgba(224, 242, 254, .98), rgba(186, 230, 253, .82)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 3px 12px #0000000a !important;
+}
+.workspace-theme .citizen-stats .citizen-stat[data-stat="approved_requests"] {
+  background: #d8b4fe !important;
+}
+.workspace-theme .citizen-stats .citizen-stat[data-stat="active_sos"] {
+  background: #fee2e2 !important;
+}
+.workspace-theme .citizen-welcome .citizen-sos-button,
+.workspace-theme .citizen-welcome .citizen-sos-button:hover:not(:disabled),
+.workspace-theme .citizen-welcome .citizen-sos-button:focus-visible {
+  color: #000 !important;
+  background: #ef4444 !important;
+  border-color: #dc2626 !important;
+}
+
+.workspace-theme .citizen-response-station {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #ededed, #d9d9d9);
+  border-color: #aaa;
+}
+.workspace-theme .citizen-response-station h2 {
+  margin: 5px 0 2px;
+  font-size: 17px;
+}
+.workspace-theme .citizen-response-station p {
+  margin: 0 0 4px;
+}
+.workspace-theme .citizen-response-station small {
+  display: block;
+  margin-top: 5px;
+}
+@media (max-width: 520px) {
+  .workspace-theme .citizen-response-station {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .workspace-theme .citizen-response-station > a {
+    min-height: 42px;
+  }
+}
