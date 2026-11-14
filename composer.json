@@ -1,0 +1,10 @@
+{
+    "require": {
+        "web-auth/webauthn-framework": "^5.3.10",
+        "symfony/clock": "^7.0",
+        "symfony/serializer": "^7.0",
+        "symfony/property-access": "^7.0",
+        "symfony/property-info": "^7.0",
+        "symfony/uid": "^7.0"
+    }
+}

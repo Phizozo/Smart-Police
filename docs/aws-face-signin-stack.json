@@ -1,0 +1,116 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Smart Police Citizen face authentication prerequisites. Creates no access keys and enrols no faces.",
+  "Resources": {
+    "CitizenFaces": {
+      "Type": "AWS::Rekognition::Collection",
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain",
+      "Properties": {
+        "CollectionId": {"Fn::Sub": "${AWS::StackName}-citizens"},
+        "Tags": [{"Key": "Application", "Value": "SmartPolice"}]
+      }
+    },
+    "LivenessIdentityPool": {
+      "Type": "AWS::Cognito::IdentityPool",
+      "Properties": {
+        "IdentityPoolName": "SmartPoliceCameraLiveness",
+        "AllowUnauthenticatedIdentities": true,
+        "AllowClassicFlow": false
+      }
+    },
+    "LivenessCameraRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [{
+            "Effect": "Allow",
+            "Principal": {"Federated": "cognito-identity.amazonaws.com"},
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+              "StringEquals": {
+                "cognito-identity.amazonaws.com:aud": {"Ref": "LivenessIdentityPool"}
+              },
+              "ForAnyValue:StringLike": {
+                "cognito-identity.amazonaws.com:amr": "unauthenticated"
+              }
+            }
+          }]
+        },
+        "Policies": [{
+          "PolicyName": "StartCameraLivenessOnly",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [{
+              "Effect": "Allow",
+              "Action": ["rekognition:StartFaceLivenessSession"],
+              "Resource": "*",
+              "Condition": {"StringEquals": {"aws:RequestedRegion": {"Ref": "AWS::Region"}}}
+            }]
+          }
+        }]
+      }
+    },
+    "LivenessPoolRoles": {
+      "Type": "AWS::Cognito::IdentityPoolRoleAttachment",
+      "Properties": {
+        "IdentityPoolId": {"Ref": "LivenessIdentityPool"},
+        "Roles": {
+          "unauthenticated": {"Fn::GetAtt": ["LivenessCameraRole", "Arn"]}
+        }
+      }
+    },
+    "FaceBackendUser": {
+      "Type": "AWS::IAM::User",
+      "Properties": {
+        "Policies": [{
+          "PolicyName": "CitizenFaceBackendOnly",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "rekognition:CreateFaceLivenessSession",
+                  "rekognition:GetFaceLivenessSessionResults"
+                ],
+                "Resource": "*",
+                "Condition": {"StringEquals": {"aws:RequestedRegion": {"Ref": "AWS::Region"}}}
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "rekognition:DescribeCollection",
+                  "rekognition:IndexFaces",
+                  "rekognition:SearchFacesByImage",
+                  "rekognition:DeleteFaces"
+                ],
+                "Resource": {"Fn::GetAtt": ["CitizenFaces", "Arn"]},
+                "Condition": {"StringEquals": {"aws:RequestedRegion": {"Ref": "AWS::Region"}}}
+              }
+            ]
+          }
+        }]
+      }
+    }
+  },
+  "Outputs": {
+    "AWSRegion": {
+      "Description": "Region for both Rekognition and the Cognito identity pool.",
+      "Value": {"Ref": "AWS::Region"}
+    },
+    "FaceCollectionId": {
+      "Description": "Dedicated collection for consented Citizen face enrolment.",
+      "Value": {"Ref": "CitizenFaces"}
+    },
+    "LivenessIdentityPoolId": {
+      "Description": "Public identity pool ID for temporary camera-stream credentials, not a user pool.",
+      "Value": {"Ref": "LivenessIdentityPool"}
+    },
+    "BackendIAMUserName": {
+      "Description": "Create an access key for this limited-permission user; never use root account keys.",
+      "Value": {"Ref": "FaceBackendUser"}
+    }
+  }
+}
